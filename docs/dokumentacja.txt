@@ -1,0 +1,99 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Dokumentacja
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Ogólne założenia:
+- System do zarządzania zespołami projektowymi
+- Wprowadzanie osób, tematów projektów
+- Tworzenie zespołów projektowych
+- Zespołom wystawiane są punkty
+- System wysyła maile z powiadomieniami
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Pierwszy kamień milowy - wymagania:
+- Kompletny model
+- Wprowadzanie w aplikacji osób, tematów projektów
+
+W ramach pierwszego kamienia milowego wyodrębniliśmy trzy modele:
+1) Person - klasa osoby. Zawiera podstawowe informacje o osobach w systemie (imię, nazwisko, email)
+2) Project - klasa projektu. Zawiera nazwę i opis projektu.
+3) Team - klasa zespołu. Zawiera listę osób, nazwę zespołu i projekt, do którego przypisany jest zespół. Założyliśmy, iż zespoły nie są trwałe- co znaczy, że dany zespół istnieje w obrębie tylko jednego projektu. Poczyniliśmy takie założenie ze względu na możliwość zmiany, np. nazwy zespołu.
+
+Schemat bazy danych: "database_schema.png"
+
+Użyte wzorce projektowe:
+1) DAO - użyty do komunikacji między aplikacją a źródłem danych, dla każdej klasy z modelu mamy osobą klasę DAO zapewniającą operacje dodawania, zapisywania i wyszukiwania obiektów w bazie
+2) Repository - wbudowany w Spring mechanizm dostarczający interfejsu kolekcji w celu dostępu do bazy danych
+3) Visitor  - zaimplementowany z myślą o przyszłym wysyłaniu powiadomień emailem
+4) MVC - użyty do zdefiniowania struktury aplikacji
+5) Dependency Injection -  użyty do oddzielenia abstrakcji od konkretnej implementacji
+6) Command - użyty do zapewnienia funkcjonalności dodawania i usuwania rekordów z bazy oraz rejestru wykonanych czynności
+
+Podział pracy:
+-Jola: widoki i kontrolery związane z projektami, widok i kontroler do widoku głównego
+-Damian: założenie projektu i konfiguracja gradle, kontroler i widoki związane osobami, integracja JavaFX ze springiem
+-Dawid: Integracja bazy danych, model bazy danych(dao + repository)
+-Mikołaj: wzorzec Command -> rejestr komend, komendy związane z dodawaniem, usuwaniem rekordów, operacje undo i redo, oraz odpowiednia związana z tym aktualizacja widoków
+
+Podsumowanie:
+Udało się sprostać wszystkim wymaganiom związanym z pierwszym kamieniem milowym.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Drugi kamień milowy - wymagania:
+- tworzenie zespołów projektowych
+- przydzielanie osób i projektów
+- ustalanie lidera
+- ocena zespołu
+
+- Model aplikacji pozostał bez zmian, jedynie rozbudowaliśmy jego poszczególne części
+- Dodany wzorzec “Collection Pipeline” do funkcyjnego przetwarzania kolekcji
+
+
+Podział pracy:
+-Jola: widok zespołów, dodawanie użytkowników do zespołu, podgląd zespołów z widoku projektów, wygląd i działanie aplikacji dla m2
+-Damian: przydzielanie zespołowi projektu, podgląd zespołów z widoku osób, ustawianie lidera, dodanie obsługi wielu modali
+-Dawid: integracja bazy danych, model bazy danych, łączenie relacji oraz API do poszczególnych metod(DAO).
+-Mikołaj: ocena zespołu, widok ocen dla zespołu, usuwanie ocen
+
+Podsumowanie:
+Udało się zaimplementować wszystkie wymagania związane z drugim kamieniem milowym.
+
+Problemy(związane z dodatkowymi funkcjonalnościami):
+Operacje cofania i ponawiania poleceń(undo/redo) zostały tymczasowo zablokowane ze względu na problemy spowodowane dodaniem wielokrotnych relacji do modelu. Aby możliwe było naprawienie tych funkcjonalności, dodamy do systemu “soft delete”, tzn nie będziemy usuwać fizycznie rekordów z bazy, a jedynie zmieniać flagę informującą o istnieniu rekordu. Rozwiąże to problem z przywracania kaskadowo usuniętych rekordów z różnych tabel jednocześnie.
+
+Naszym kolejnym celem będzie dodanie takiego usuwania do systemu, tym samym będziemy mogli trzymać historię zmian aplikacji, co wyeliminuje wszystkie problemy z potrzebnymi w aplikacji operacjami cofania i ponawiania.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Trzeci kamień milowy - wymagania:
+- taski
+- notyfikacja i subskrybcja
+- rankingi
+- ocenianie grupowe
+- tworzenie raportów
+- import danych z pliku
+
+Wzorce projektowe:
+- filtr - służy filtrowaniu wyników podczas tworzenia rankingów
+- strategia - służy do ustawiania przelicznika punktowego
+
+Podział pracy:
+- Jola: subskrypcja emaili, widok i eksport raportów
+- Damian: tworzenie rankingów, import danych, ocenianie grupowe
+- Dawid: obsługa wysyłania maili
+- Mikołaj: dodanie tasków do modelu, dodanie widoków do wyświetlania tasków w różnych kontekstach oraz usuwania i dodawania tasków
+
+Podsumowanie:
+Udało nam się zaimplementować wszystkie wymagania. Notyfikacja osób o zmianach w systemie odbywa się poprzez pocztę email. Zarządca systemu może edytować subskrypcje poszczególnych osób. Powstał także system rankingów, który można dostosować do własnych potrzeb za pomocą filtrów. Zmodyfikowany został model oceniania. Dodano możliwosć oceniania wielu osób na raz. Ponadto pojawiła się opcja tworzenia raportów. Wszystkie raporty zapisywane są w katalogu resources/reports. Dane importowane są z plików JSON. Ze względu na zachowanie spójnosci danych możliwy jest import tylko osób i projektów.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Instrukcja uruchomienia projektu:
+1) Wymagana jest Java w wersji co najmniej 11
+2) Zmienna systemowa JAVA_HOME musi wskazywać na jdk11
+3) Z poziomu katalogu głównego projektu:
+    a) MacOS/Linux: ./gradlew run
+    b) Windows: gradlew.bat run

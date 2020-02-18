@@ -1,0 +1,38 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+group = 'pl.edu.agh'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+mainClassName = 'pl.edu.agh.pierogi.PierogiApplication'
+
+javafx {
+    version = "13"
+    modules = ['javafx.controls', 'javafx.graphics', 'javafx.fxml', 'javafx.base']
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    runtimeOnly 'com.h2database:h2'
+    compile 'org.springframework.boot:spring-boot-starter-mail'
+    compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.13'
+    compile group: 'org.bouncycastle', name: 'bcprov-jdk15', version: '1.46'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+
+test {
+    useJUnitPlatform()
+}
