@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import java.net.URL?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="650.0" prefWidth="400.0" styleClass="vbox-style"
+            xmlns="http://javafx.com/javafx/11.0.1" fx:controller="pl.edu.agh.pierogi.controller.TeamMemberController">
+    <bottom>
+        <HBox prefHeight="47.0" prefWidth="500.0">
+            <Button fx:id="okButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleOkAction"
+                    styleClass="button-style" text="OK" textFill="#045061" GridPane.rowIndex="2">
+                <HBox.margin>
+                    <Insets bottom="30.0" left="185.0" right="10.0" top="10.0"/>
+                </HBox.margin>
+            </Button>
+        </HBox>
+    </bottom>
+    <stylesheets>
+        <URL value="@../vstyle.css"/>
+    </stylesheets>
+    <center>
+        <VBox prefHeight="500.0" prefWidth="417.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+            </padding>
+            <children>
+                <Label text="PEOPLE" textFill="#b1d4e0">
+                    <font>
+                        <Font size="17.0"/>
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="155.0"/>
+                    </VBox.margin>
+                </Label>
+                <TableView fx:id="peopleTable" prefHeight="195.0" prefWidth="365.0" styleClass="table-style">
+                    <columns>
+                        <TableColumn fx:id="firstnameColumn" prefWidth="184.0" styleClass="column-style"
+                                     text="Firstname"/>
+                        <TableColumn fx:id="lastnameColumn" prefWidth="176.0" styleClass="column-style"
+                                     text="Lastname"/>
+                    </columns>
+                    <padding>
+                        <Insets right="10.0" top="10.0"/>
+                    </padding>
+                    <VBox.margin>
+                        <Insets bottom="10.0"/>
+                    </VBox.margin>
+                </TableView>
+                <HBox prefHeight="45.0" prefWidth="360.0">
+                    <children>
+                        <Button fx:id="addButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0"
+                                styleClass="button-style" style="-fx-background-radius: 4em;"
+                                onAction="#handleAddAction">
+                            <HBox.margin>
+                                <Insets left="100.0" top="10.0"/>
+                            </HBox.margin>
+                            <graphic>
+                                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@down-arrow.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="deleteButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0"
+                                styleClass="button-style" style="-fx-background-radius: 4em;"
+                                onAction="#handleDeleteAction">
+                            <HBox.margin>
+                                <Insets left="50.0" top="10.0"/>
+                            </HBox.margin>
+                            <graphic>
+                                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@up-arrow.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                    </children>
+                </HBox>
+                <Label text="TEAM MEMBERS" textFill="#b1d4e0">
+                    <font>
+                        <Font size="17.0"/>
+                    </font>
+                    <VBox.margin>
+                        <Insets left="125.0" top="20.0"/>
+                    </VBox.margin>
+                </Label>
+                <TableView fx:id="membersTable" prefHeight="199.0" prefWidth="360.0" styleClass="table-style">
+                    <columns>
+                        <TableColumn fx:id="memFirstnameColumn" prefWidth="185.0" styleClass="column-style"
+                                     text="Firstname"/>
+                        <TableColumn fx:id="memLastnameColumn" prefWidth="175.0" styleClass="column-style"
+                                     text="Lastname"/>
+                    </columns>
+                    <padding>
+                        <Insets right="10.0" top="10.0"/>
+                    </padding>
+                    <VBox.margin>
+                        <Insets top="10.0"/>
+                    </VBox.margin>
+                </TableView>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

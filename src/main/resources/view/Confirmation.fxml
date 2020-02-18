@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefWidth="200.0" xmlns="http://javafx.com/javafx/8"
+            fx:controller="pl.edu.agh.pierogi.controller.ConfirmationController">
+    <bottom>
+        <HBox alignment="CENTER" prefHeight="47.0" prefWidth="200.0" spacing="40.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button mnemonicParsing="false" text="Yes" onAction="#handleYesAction">
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" text="No" onAction="#handleNoAction">
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+    </bottom>
+    <center>
+        <Pane prefHeight="41.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <Text layoutX="63.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Are you sure?"/>
+            </children>
+        </Pane>
+    </center>
+</BorderPane>

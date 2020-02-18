@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="350.0" prefWidth="420.0" styleClass="vbox-style" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.agh.pierogi.controller.ManageTasksController">
+    <bottom>
+        <HBox prefHeight="82.0" prefWidth="426.0">
+            <Button fx:id="okButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleOkAction" styleClass="button-style" text="OK" textFill="#045061">
+                <HBox.margin>
+                    <Insets bottom="30.0" left="180.0" right="10.0" top="10.0" />
+                </HBox.margin>
+            </Button>
+        </HBox>
+    </bottom>
+    <stylesheets>
+        <URL value="@../vstyle.css" />
+    </stylesheets>
+    <center>
+        <VBox prefHeight="340.0" prefWidth="428.0">
+            <children>
+                <Label fx:id="personNameLabel" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #b1d4e0;" textAlignment="CENTER" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #b1d4e0" text="MANAGE TASKS" textAlignment="CENTER" wrappingWidth="405.9091796875">
+                    <font>
+                        <Font size="19.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                    </VBox.margin>
+                </Text>
+                <TableView fx:id="taskTable" minHeight="100.0" prefHeight="173.0" prefWidth="405.0" styleClass="table-style" BorderPane.alignment="CENTER">
+                    <columns>
+                        <TableColumn fx:id="taskNameColumn" prefWidth="117.0" styleClass="column-style" text="Task" />
+                        <TableColumn fx:id="projectNameColumn" prefWidth="120.0" styleClass="column-style" text="Project" />
+                        <TableColumn fx:id="teamNameColumn" prefWidth="120.0" styleClass="column-style" text="Team" />
+                        <TableColumn fx:id="isCompletedColumn" prefWidth="48.0" styleClass="column-style" text="Done" />
+                    </columns>
+                    <contextMenu>
+                        <ContextMenu>
+                            <items>
+                                <MenuItem fx:id="contextMenuShowDescription" text="Description"
+                                          onAction="#handleShowDescriptionAction"/>
+                            </items>
+                        </ContextMenu>
+                    </contextMenu>
+                    <BorderPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </BorderPane.margin>
+                </TableView>
+                <HBox>
+                    <Button fx:id="doneButton" onAction="#handleDoneAction" mnemonicParsing="false" text="Mark as Done" styleClass="button-style"  textFill="#045061">
+                        <HBox.margin>
+                            <Insets bottom="30.0" left="30.0" right="10.0" top="10.0" />
+                        </HBox.margin>
+                    </Button>
+                    <Button fx:id="notDoneButton" onAction="#handleNotDoneAction" mnemonicParsing="false" text="Mark as Not Done" styleClass="button-style"  textFill="#045061">
+                        <HBox.margin>
+                            <Insets bottom="30.0" left="30.0" right="10.0" top="10.0" />
+                        </HBox.margin>
+                    </Button>
+                    <Button fx:id="deleteButton" onAction="#handleDeleteAction" mnemonicParsing="false" text="Delete" styleClass="button-style"  textFill="#045061">
+                        <HBox.margin>
+                            <Insets bottom="30.0" left="30.0" right="10.0" top="10.0" />
+                        </HBox.margin>
+                    </Button>
+                </HBox>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </BorderPane.margin>
+        </VBox>
+    </center>
+</BorderPane>

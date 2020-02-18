@@ -1,0 +1,45 @@
+.button-style {
+    -fx-background-color: #b1d4e0;
+    -fx-text-fill: #0c6980;
+}
+
+.table-style {
+    -fx-background-color: #b1d4e0;
+}
+
+.table-row-cell:selected .column-style {
+    -fx-background-color: #0c6980;
+    -fx-text-fill: #b1d4e0;
+}
+
+.vbox-style {
+    -fx-background-color: #0c6980;
+}
+
+.vbox-style GridPane {
+    -fx-padding: 10px;
+}
+
+.column-style {
+    -fx-background-color: #b1d4e0;
+    -fx-text-fill: #0c6980;
+}
+
+.combo-box-style {
+    -fx-background-color: #0c6980;
+    -fx-text-fill: #b1d4e0;
+}
+
+.combo-box-style .arrow {
+    -fx-background-color: #b1d4e0;
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-background-color: #0c6980;
+    -fx-fill: #b1d4e0;
+}
+
+.combo-box-style .list-cell {
+    -fx-background-color: #0c6980;
+    -fx-text-fill: #b1d4e0;
+}

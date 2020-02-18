@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import java.net.URL?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" prefWidth="300.0" styleClass="vbox-style"
+            xmlns="http://javafx.com/javafx"
+            fx:controller="pl.edu.agh.pierogi.controller.PersonAddController">
+    <center>
+        <GridPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                  minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0"
+                  xmlns="http://javafx.com/javafx/11.0.1">
+            <columnConstraints>
+                <ColumnConstraints/>
+                <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <Label fx:id="errorLabel" styleClass="error-label" GridPane.columnSpan="2" textFill="#e03e46"
+                       alignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="17.0"/>
+                    </font>
+                </Label>
+                <Label text="Firstname" textFill="#b1d4e0" GridPane.rowIndex="1" alignment="CENTER">
+                    <font>
+                        <Font size="17.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="firstnameTextField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Lastname" GridPane.rowIndex="2" textFill="#b1d4e0" alignment="CENTER">
+                    <font>
+                        <Font size="17.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="lastnameTextField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label text="Email" GridPane.rowIndex="3" textFill="#b1d4e0" alignment="CENTER">
+                    <font>
+                        <Font size="17.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="emailTextField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            </children>
+        </GridPane>
+    </center>
+    <bottom>
+        <HBox>
+            <Button alignment="CENTER" mnemonicParsing="false"
+                    styleClass="button-style" text="CANCEL" textFill="#045061" GridPane.rowIndex="2"
+                    onAction="#handleCancelAction">
+                <HBox.margin>
+                    <Insets bottom="30.0" left="50.0" right="10.0" top="10.0"/>
+                </HBox.margin>
+            </Button>
+            <Button alignment="CENTER" mnemonicParsing="false"
+                    styleClass="button-style" text="OK" textFill="#045061" GridPane.columnIndex="1"
+                    GridPane.rowIndex="2"
+                    onAction="#handleOkAction">
+                <HBox.margin>
+                    <Insets bottom="30.0" left="180.0" right="30.0" top="10.0"/>
+                </HBox.margin>
+            </Button>
+        </HBox>
+    </bottom>
+    <stylesheets>
+        <URL value="@../vstyle.css"/>
+    </stylesheets>
+</BorderPane>

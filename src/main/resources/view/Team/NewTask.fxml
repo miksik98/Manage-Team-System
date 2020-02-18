@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefWidth="300.0" styleClass="vbox-style" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.agh.pierogi.controller.NewTaskController">
+    <top>
+        <VBox>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #b1d4e0" text="Name" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <font>
+                    <Font size="17.0" />
+                </font>
+                </Text>
+                <TextField fx:id="nameField" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <opaqueInsets>
+                        <Insets right="10.0" />
+                    </opaqueInsets>
+                </TextField>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #b1d4e0" text="Description" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Text>
+                <TextArea fx:id="descriptionField" maxHeight="40" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                    <opaqueInsets>
+                        <Insets right="10.0" />
+                    </opaqueInsets>
+                </TextArea>
+        </VBox>
+    </top>
+    <stylesheets>
+        <URL value="@../vstyle.css" />
+    </stylesheets>
+    <center>
+        <VBox>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #b1d4e0" text="Responsible Person" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Text>
+        <TableView fx:id="participantsTable" prefHeight="200.0" prefWidth="300.0" styleClass="table-style" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="participantFirstName" prefWidth="149.0" styleClass="column-style" text="FirstName" />
+                <TableColumn fx:id="participantLastName" prefWidth="149.0" styleClass="column-style" text="LastName" />
+            </columns>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </BorderPane.margin>
+        </TableView>
+        </VBox>
+    </center>
+   <bottom>
+       <HBox>
+      <Button fx:id="createButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleCreateAction" styleClass="button-style" text="Create" textFill="#045061">
+       <HBox.margin>
+           <Insets bottom="10.0" left="120.0" right="10.0" top="10.0"/>
+       </HBox.margin>
+       </Button>
+       </HBox>
+   </bottom>
+</BorderPane>

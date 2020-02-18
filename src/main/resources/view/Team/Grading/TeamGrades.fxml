@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="265.0" prefWidth="524.0" xmlns="http://javafx.com/javafx/8"
+            fx:controller="pl.edu.agh.pierogi.controller.TeamGradesController">
+    <children>
+        <TableView fx:id="participantsTable" prefHeight="200.0" prefWidth="254.0" styleClass="table-style"
+                   AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columns>
+                <TableColumn fx:id="participantFirstName" prefWidth="115.99999713897705" styleClass="column-style"
+                             text="FirstName"/>
+                <TableColumn fx:id="participantLastName" prefWidth="122.4000244140625" styleClass="column-style"
+                             text="LastName"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+        <TableView fx:id="gradesTable" layoutX="262.0" layoutY="20.0" prefHeight="200.0" prefWidth="244.0"
+                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columns>
+                <TableColumn fx:id="descriptionColumn" prefWidth="75.0" text="Description"/>
+                <TableColumn fx:id="valueColumn" prefWidth="75.0" text="Value"/>
+                <TableColumn fx:id="maxValueColumn" prefWidth="75.0" text="MaxValue"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+            <contextMenu>
+                <ContextMenu>
+                    <items>
+                        <MenuItem onAction="#handleDeleteGradeAction" text="Delete"/>
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+        </TableView>
+        <Button fx:id="backButton" alignment="CENTER" layoutX="220.0" layoutY="225.0" mnemonicParsing="false"
+                onAction="#handleBackAction" prefHeight="27.0" prefWidth="109.0" styleClass="button-style" text="BACK"
+                textFill="#045061" AnchorPane.leftAnchor="218.0" AnchorPane.rightAnchor="218.0"/>
+    </children>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+    </padding>
+</AnchorPane>

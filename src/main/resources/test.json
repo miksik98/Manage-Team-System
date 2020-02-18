@@ -1,0 +1,38 @@
+[
+  {
+    "Person": [
+      {
+        "firstName": "Peter",
+        "lastName": "Jackson",
+        "email": "pj@mail.com"
+      },
+      {
+        "firstName": "Keanu",
+        "lastName": "Reeves",
+        "email": "kr@mail.com"
+      },
+      {
+        "firstName": "Joey",
+        "lastName": "Batey",
+        "email": "jb@mail.com"
+      },
+      {
+        "firstName": "Henry",
+        "lastName": "Cavill",
+        "email": "hc@mail.com"
+      }
+    ]
+  },
+  {
+    "Project": [
+      {
+        "topic": "The Witcher",
+        "description": "Let's make a new season"
+      },
+      {
+        "topic": "Matrix",
+        "description": "Let's make a super move"
+      }
+    ]
+  }
+]

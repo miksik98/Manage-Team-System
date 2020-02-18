@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="250.0" styleClass="vbox-style" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.agh.pierogi.controller.PersonTeamTasksController">
+    <bottom>
+        <HBox>
+            <Button fx:id="okButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleOkAction" styleClass="button-style" text="OK" textFill="#045061">
+                <HBox.margin>
+                    <Insets bottom="30.0" left="133.0" right="10.0" top="10.0" />
+                </HBox.margin>
+            </Button>
+        </HBox>
+    </bottom>
+    <stylesheets>
+        <URL value="@../vstyle.css" />
+    </stylesheets>
+    <center>
+        <VBox>
+            <children>
+                <Label fx:id="personNameLabel" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #b1d4e0;" textAlignment="CENTER" />
+                <TableView fx:id="taskTable" styleClass="table-style" BorderPane.alignment="CENTER">
+                    <columns>
+                        <TableColumn fx:id="taskNameColumn" prefWidth="90.0" styleClass="column-style" text="Task" />
+                        <TableColumn fx:id="descriptionColumn" prefWidth="140.0" styleClass="column-style" text="Description"/>
+                        <TableColumn fx:id="isCompletedColumn" prefWidth="48.0" styleClass="column-style" text="Done" />
+                    </columns>
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                </TableView>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </BorderPane.margin>
+        </VBox>
+    </center>
+</BorderPane>
